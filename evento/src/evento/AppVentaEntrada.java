@@ -14,7 +14,7 @@ public class AppVentaEntrada {
 	
 	
 public static void main(String[] args) {
-	asiento = new Asiento(5, 6);
+	asiento = new Asiento(10, 10);
 	asiento.llenarEvento();
 	//asiento.mostrarSala();
 	

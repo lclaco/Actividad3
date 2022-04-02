@@ -86,6 +86,7 @@ public class Asiento {
 			System.out.println("\n");
 		}
 		System.out.println("************** \n");
+		System.out.println("L = asiento libre  V = vendido\n");
 	}
 	
 	//validamos que solo se puedan seleccionar entradas que estan dentro de nuestro arreglo bi dimensional
@@ -111,8 +112,8 @@ public class Asiento {
 		entradaVendida += precio;
 		local[comprarFila][comprarColumna] = "V";
 		System.out.println("\n**************ENTRADA*****************\n");
-		System.out.println("Ubicacion : Cancha\n" );
-		System.out.printf("Fecha : %1$td-%1$tm-%1$ty %tT%n",fechaHoraActual);
+		System.out.printf("N° Entrada : %s%S%n%nUbicacion : Cancha%n",comprarFila,comprarColumna );		
+		System.out.printf("%nFecha : %1$td-%1$tm-%1$ty %tT%n",fechaHoraActual);
 		System.out.println("\nEl valor de la entrada es de : $"+ precio);		
 		System.out.println("\n***************************************\n");
 		
