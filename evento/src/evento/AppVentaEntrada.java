@@ -14,7 +14,7 @@ public class AppVentaEntrada {
 	
 	
 public static void main(String[] args) {
-	asiento = new Asiento(10, 10);
+	asiento = new Asiento(11, 9);
 	asiento.llenarEvento();
 	//asiento.mostrarSala();
 	
@@ -31,7 +31,7 @@ public static void main(String[] args) {
 		case OPCION_MENU_INFORMACION_EVENTO:
 			asiento.estadisticas();
 			break;		
-		}
+		}System.out.printf("Seleccionó la opción %d", opcionSeleccionada);
 	} while (opcionSeleccionada != OPCION_MENU_SALIR);
 	System.out.printf("Seleccionó la opción %d", opcionSeleccionada);
 }
@@ -39,13 +39,15 @@ public static void main(String[] args) {
 
 private static int menu() {
 	
-	System.out.println("----------------------- \n *MENU VENTAS * \n-----------------------");
+	System.out.println("\n---------------------------------\n"
+					 + "        * MENU VENTAS *        \n"
+					 + "---------------------------------");
 	System.out.println("1. VER DISPONIBILIDAD DE ASIENTOS");
 	System.out.println("2. COMPRAR ENTRADA A EVENTO");
 	System.out.println("3. ESTADISTICAS DEL EVENTO");	
 	System.out.println("4. EXIT");
 	
-	System.out.println("\n-------------------------------- \n *POR FAVOR DIGITE UNA OPCIÓN* \n--------------------------------");
+	System.out.println("--------------------------------- \n  *POR FAVOR DIGITE UNA OPCIÓN* \n---------------------------------");
 	
 			
 	try {

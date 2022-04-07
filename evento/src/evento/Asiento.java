@@ -77,16 +77,18 @@ public class Asiento {
 	// L = asiento libre  V = vendido
 	
 	public void mostrarSala() {
-		System.out.println("\n    Evento:   ");
-		System.out.println("**************");
+		System.out.println("\n******************************");
+		System.out.println("           Evento :           ");
+		System.out.println("******************************");
 		for (String[] asientos : local) {
 			for (int j = 0; j < local[0].length; j++) {
-				System.out.print(asientos[j]+" ");
+				System.out.print(asientos[j]+"  ");
 			}			
 			System.out.println("\n");
 		}
-		System.out.println("************** \n");
-		System.out.println("L = asiento libre  V = vendido\n");
+		System.out.println("******************************");
+		System.out.println("    L = Libre  X = Vendido    ");
+		System.out.println("******************************\n");
 	}
 	
 	//validamos que solo se puedan seleccionar entradas que estan dentro de nuestro arreglo bi dimensional
@@ -107,17 +109,40 @@ public class Asiento {
 	//imprime la entrada
 	//
 	public void comprarEntrada(int comprarFila, int comprarColumna) {
-		int precio = 30000;
+		int precio = calcularPrecio(comprarFila);
 		entrada += 1;
 		entradaVendida += precio;
-		local[comprarFila][comprarColumna] = "V";
+		local[comprarFila][comprarColumna] = "X";
 		System.out.println("\n**************ENTRADA*****************\n");
-		System.out.printf("N° Entrada : %s%S%n%nUbicacion : Cancha%n",comprarFila,comprarColumna );		
+		asignarAsiento(comprarFila);
+		System.out.printf("%nN° Entrada : %s%s%n ",comprarFila,comprarColumna);		
 		System.out.printf("%nFecha : %1$td-%1$tm-%1$ty %tT%n",fechaHoraActual);
 		System.out.println("\nEl valor de la entrada es de : $"+ precio);		
 		System.out.println("\n***************************************\n");
 		
 	}
+	
+	
+	public int calcularPrecio(int comprarFila) {
+		int precio = 30000;
+		if(comprarFila <= 3) {
+			precio = 100000;
+		}if(comprarFila  > 3 && comprarFila <= 6) {
+			precio = 60000;
+		}		
+		return precio;
+	}
+	
+	public void asignarAsiento(int comprarFila){		
+		if(comprarFila <= 3){
+			System.out.println("PALCO");
+		}if(comprarFila  > 3 &&comprarFila <=6) 
+		{System.out.println("PLATEA");				
+		}if (comprarFila  > 6) {
+		System.out.println("GALERIA");
+		}			
+	}	
+	
 	
 	//generamos resporte
 	//entradas vendidas
@@ -125,7 +150,7 @@ public class Asiento {
 	//recaudacion
 	public void estadisticas() {
 		System.out.println("\n Entradas vendidas : "+entrada);
-		System.out.println("\n Entradas disponibles : "+ (30-entrada));
+		System.out.println("\n Entradas disponibles : "+ (((fila*columna)+1)-entrada));
 		System.out.println("\n Recaudado : "+entradaVendida);
 		
 	}
